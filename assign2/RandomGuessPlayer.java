@@ -36,10 +36,17 @@ public class RandomGuessPlayer implements Player
             players.add(player);
         }
 
+
+        //checking 
         List<String> hairLengths = attributes.get("hairLength");
         for (String hair : hairLengths){
             System.out.println(hair);
         }
+
+        for (PlayerFromFile player : players){
+            System.out.println(player.getName() + player.getAttributes());
+        }
+
         //continue tmr sooooo  sleepy bro
 
     } // end of RandomGuessPlayer()
@@ -136,4 +143,12 @@ class PlayerFromFile{
         this.name = name;
         this.attributes = attributes;
     }
+    public String getName(){
+        return name;
+    }
+
+    public Map<String, String> getAttributes(){
+        return attributes;
+    }
+
 }
