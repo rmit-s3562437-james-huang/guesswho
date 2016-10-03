@@ -26,6 +26,7 @@ public class RandomGuessPlayer implements Player
     {
         // reads game file
         Scanner gameFileScan = new Scanner(new File(gameFilename));
+
         Map<String, List<String>> attributes = readAttributes(gameFileScan);
 
         List<PlayerFromFile> players = new ArrayList<PlayerFromFile>();
@@ -39,9 +40,7 @@ public class RandomGuessPlayer implements Player
         for (String hair : hairLengths){
             System.out.println(hair);
         }
-
-
-
+        //continue tmr sooooo  sleepy bro
 
     } // end of RandomGuessPlayer()
 
@@ -49,6 +48,7 @@ public class RandomGuessPlayer implements Player
         Map<String, List<String>> attributes = new HashMap<String, List<String>>();
 
         while (gameFileScan.hasNextLine()){
+            //read line by line
             String line = gameFileScan.nextLine();
 
             //check newline
@@ -78,15 +78,18 @@ public class RandomGuessPlayer implements Player
         Map<String, String> attributes = new HashMap<String, String>();
 
         while (gameFileScan.hasNextLine()){
+            //read attribute and value of the P player
             String line = gameFileScan.nextLine();
             if (line.equals("")){
                 break;
             }
 
             String[] keyValue = line.split(" ");
+            //check whether it the players name or the attribute
             if (keyValue.length > 1){
                 attributes.put(keyValue[0], keyValue[1]);
             }else {
+                //vaue < 1 then must be the name
                 name = line;
             }
         }
