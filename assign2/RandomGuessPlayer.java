@@ -59,6 +59,11 @@ public class RandomGuessPlayer implements Player
             Scanner lineScan = new Scanner(line);
             lineScan.useDelimiter(" ");
 
+            //this idea is from the 4.1 Details of Files
+            //in the assignment specs
+
+            //[attribute] [LIST of values it can take]
+
             //get the first item of the line
             String key = lineScan.next();
             List<String> values = new ArrayList<String>();
@@ -83,6 +88,10 @@ public class RandomGuessPlayer implements Player
             if (line.equals("")){
                 break;
             }
+
+            //person format
+            //[person name]
+            //[attribute n] [value of attribute n]
 
             String[] keyValue = line.split(" ");
             //check whether it the players name or the attribute
