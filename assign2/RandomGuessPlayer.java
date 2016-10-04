@@ -11,8 +11,15 @@ import java.util.logging.Level;
  */
 public class RandomGuessPlayer implements Player {
     public PlayerFromFile chosenPlayer = null;
+
     public List<PlayerFromFile> players = new ArrayList<PlayerFromFile>();
-    public Map<String, List<String>> attributes = new HashMap<String ,List<String>>();
+
+    public List<PlayerFromFile> candidates = new ArrayList<PlayerFromFile>();
+
+    public Map<String, List<String>> attributes = new HashMap<String, List<String>>();
+
+    public Map<String, String> chosenPlayerAttributes = new HashMap<String, String>();
+
     /**
      * Loads the game configuration from gameFilename, and also store the chosen
      * person.
@@ -45,7 +52,9 @@ public class RandomGuessPlayer implements Player {
             }
         }
 
-        System.out.println(chosenPlayer.getName() + chosenPlayer.getAttributes());
+        for (PlayerFromFile player : players) {
+            candidates.add(player);
+        }
 
 
 //        //checking
@@ -123,40 +132,43 @@ public class RandomGuessPlayer implements Player {
 
 
     public Guess guess() {
+        String value = null;
 
+        //randomly pick a player
+        int randomPlayerIndex = new Random().nextInt(candidates.size());
+        PlayerFromFile player = candidates.get(randomPlayerIndex);
 
+        //randomly pick an attribute and its value from that random player
+        Map<String, String> attributes = player.getAttributes();
+        Random ranGen = new Random();
+        Object[] values = attributes.keySet().toArray();
+        String attribute = (String) values[ranGen.nextInt(values.length)];
+        for (Map.Entry<String, String> entry : attributes.entrySet()) {
+            if (attributes.containsKey(attribute)) {
+                value = attributes.get(attribute);
+            }
+        }
 
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        //randomly pick a guess type
+        int selection = new Random().nextInt(Guess.GuessType.values().length);
+        Guess.GuessType guessType = Guess.GuessType.values()[selection];
+        if (guessType == Guess.GuessType.Attribute) {
+            return new Guess(Guess.GuessType.Attribute, attribute, value);
+        } else if (guessType == Guess.GuessType.Person) {
+            return new Guess(Guess.GuessType.Person, "", player.getName());
+        }
         return new Guess(Guess.GuessType.Person, "", "Placeholder");
     } // end of guess()
 
 
     public boolean answer(Guess currGuess) {
+        //if the answer is YES
+        //eliminate all candidates who don't have a value v for attribute a
 
+        //if the answer is No
+        //eliminate all candidates that have v for for attribute a
+
+        //
 
         return false;
     } // end of answer()
