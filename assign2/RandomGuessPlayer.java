@@ -11,9 +11,14 @@ import java.util.logging.Level;
  */
 public class RandomGuessPlayer implements Player {
     public PlayerFromFile chosenPlayer = null;
+
     public List<PlayerFromFile> players = new ArrayList<PlayerFromFile>();
+
     public List<PlayerFromFile> candidates = new ArrayList<PlayerFromFile>();
+
     public Map<String, List<String>> attributes = new HashMap<String ,List<String>>();
+
+    public Map<String, String> chosenPlayerAttributes = new HashMap<String ,String>();
     /**
      * Loads the game configuration from gameFilename, and also store the chosen
      * person.
@@ -156,6 +161,20 @@ public class RandomGuessPlayer implements Player {
 
 
     public boolean answer(Guess currGuess) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
 
 
