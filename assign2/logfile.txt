@@ -1,0 +1,6 @@
+Round 1
+Player 1 guessing Person  Placeholder
+Player 2 answering false
+Player 2 guessing Person  Placeholder
+Player 1 answering false
+It's a tie!
