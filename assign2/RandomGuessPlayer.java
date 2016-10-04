@@ -31,23 +31,32 @@ public class RandomGuessPlayer implements Player
 
         List<PlayerFromFile> players = new ArrayList<PlayerFromFile>();
 
+        PlayerFromFile chosenPlayer = null;
+
         while (gameFileScan.hasNextLine()){
             PlayerFromFile player = readPlayerFromFile(gameFileScan);
             players.add(player);
         }
 
-
-        //checking 
-        List<String> hairLengths = attributes.get("hairLength");
-        for (String hair : hairLengths){
-            System.out.println(hair);
-        }
-
         for (PlayerFromFile player : players){
-            System.out.println(player.getName() + player.getAttributes());
+            if (player.getName().equals(chosenName)){
+                chosenPlayer = new PlayerFromFile(player.getName(), player.getAttributes());
+            }
+
         }
 
-        //continue tmr sooooo  sleepy bro
+        System.out.println(chosenPlayer.getName() + chosenPlayer.getAttributes());
+
+
+//        //checking
+//        List<String> hairLengths = attributes.get("hairLength");
+//        for (String hair : hairLengths){
+//            System.out.println(hair);
+//        }
+//
+//        for (PlayerFromFile player : players){
+//            System.out.println(player.getName() + player.getAttributes());
+//        }
 
     } // end of RandomGuessPlayer()
 
@@ -116,6 +125,7 @@ public class RandomGuessPlayer implements Player
     public Guess guess() {
 
         // placeholder, replace
+
         return new Guess(Guess.GuessType.Person, "", "Placeholder");
     } // end of guess()
 
