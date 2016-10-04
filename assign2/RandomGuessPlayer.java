@@ -9,6 +9,7 @@ import java.util.*;
  * that this class implements the Player interface (directly or indirectly).
  */
 public class RandomGuessPlayer implements Player {
+    public PlayerFromFile chosenPlayer = null;
     /**
      * Loads the game configuration from gameFilename, and also store the chosen
      * person.
@@ -22,6 +23,9 @@ public class RandomGuessPlayer implements Player {
      */
     public RandomGuessPlayer(String gameFilename, String chosenName)
             throws IOException {
+
+        PlayerFromFile chosenPlayer = null;
+
         // reads game file
         Scanner gameFileScan = new Scanner(new File(gameFilename));
 
@@ -29,7 +33,6 @@ public class RandomGuessPlayer implements Player {
 
         List<PlayerFromFile> players = new ArrayList<PlayerFromFile>();
 
-        PlayerFromFile chosenPlayer = null;
 
         while (gameFileScan.hasNextLine()) {
             PlayerFromFile player = readPlayerFromFile(gameFileScan);
@@ -38,7 +41,7 @@ public class RandomGuessPlayer implements Player {
 
         for (PlayerFromFile player : players) {
             if (player.getName().equals(chosenName)) {
-                chosenPlayer = new PlayerFromFile(player.getName(), player.getAttributes());
+                chosenPlayer = player;
             }
         }
 
@@ -121,7 +124,7 @@ public class RandomGuessPlayer implements Player {
 
     public Guess guess() {
 
-        // placeholder, replace
+
 
         return new Guess(Guess.GuessType.Person, "", "Placeholder");
     } // end of guess()
@@ -129,14 +132,14 @@ public class RandomGuessPlayer implements Player {
 
     public boolean answer(Guess currGuess) {
 
-        // placeholder, replace
+
         return false;
     } // end of answer()
 
 
     public boolean receiveAnswer(Guess currGuess, boolean answer) {
 
-        // placeholder, replace
+
         return true;
     } // end of receiveAnswer()
 
