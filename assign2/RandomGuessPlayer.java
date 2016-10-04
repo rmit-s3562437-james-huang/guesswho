@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+import java.util.logging.Level;
 
 /**
  * Random guessing player.
@@ -10,6 +11,8 @@ import java.util.*;
  */
 public class RandomGuessPlayer implements Player {
     public PlayerFromFile chosenPlayer = null;
+    public List<PlayerFromFile> players = new ArrayList<PlayerFromFile>();
+    public Map<String, List<String>> attributes = new HashMap<String ,List<String>>();
     /**
      * Loads the game configuration from gameFilename, and also store the chosen
      * person.
@@ -29,10 +32,7 @@ public class RandomGuessPlayer implements Player {
         // reads game file
         Scanner gameFileScan = new Scanner(new File(gameFilename));
 
-        Map<String, List<String>> attributes = readAttributes(gameFileScan);
-
-        List<PlayerFromFile> players = new ArrayList<PlayerFromFile>();
-
+        attributes = readAttributes(gameFileScan);
 
         while (gameFileScan.hasNextLine()) {
             PlayerFromFile player = readPlayerFromFile(gameFileScan);
@@ -123,6 +123,31 @@ public class RandomGuessPlayer implements Player {
 
 
     public Guess guess() {
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
