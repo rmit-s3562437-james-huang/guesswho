@@ -1,16 +1,6 @@
 Round 1
-Player 1 guessing Attribute glasses green
-Player 2 answering true
-Player 2 guessing Attribute hat white
-Player 1 answering false
-Round 2
-Player 1 guessing Attribute faceShape blue
+Player 1 guessing Person  Placeholder
 Player 2 answering false
-Player 2 guessing Attribute hat brown
+Player 2 guessing Person  Placeholder
 Player 1 answering false
-Round 3
-Player 1 guessing Person  P5
-Player 2 answering true
-Player 2 guessing Person  P1
-Player 1 answering false
-Player 1 won!
+It's a tie!

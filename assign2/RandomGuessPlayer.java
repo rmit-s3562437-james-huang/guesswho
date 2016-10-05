@@ -9,15 +9,15 @@ import java.util.*;
  * that this class implements the Player interface (directly or indirectly).
  */
 public class RandomGuessPlayer implements Player {
-    public PlayerFromFile chosenPlayer = null;
+    private PlayerFromFile chosenPlayer = null;
 
-    public List<PlayerFromFile> players = new ArrayList<PlayerFromFile>();
+    private List<PlayerFromFile> players = new ArrayList<PlayerFromFile>();
 
-    public List<PlayerFromFile> candidates = new ArrayList<PlayerFromFile>();
+    private List<PlayerFromFile> candidates = new ArrayList<PlayerFromFile>();
 
-    public Map<String, List<String>> attributes = new HashMap<String, List<String>>();
+    private Map<String, List<String>> attributes = new HashMap<String, List<String>>();
 
-    public Map<String, String> chosenPlayerAttributes = new HashMap<String, String>();
+    private Map<String, String> chosenPlayerAttributes = new HashMap<String, String>();
 
     /**
      * Loads the game configuration from gameFilename, and also store the chosen
@@ -181,7 +181,6 @@ public class RandomGuessPlayer implements Player {
 
         return false;
     } // end of answer()
-
 
     public boolean receiveAnswer(Guess currGuess, boolean answer) {
         if (currGuess.getType() == Guess.GuessType.Person) {
