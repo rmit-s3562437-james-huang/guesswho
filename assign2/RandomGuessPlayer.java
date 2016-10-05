@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.*;
-import java.util.logging.Level;
 
 /**
  * Random guessing player.
@@ -34,8 +33,6 @@ public class RandomGuessPlayer implements Player {
     public RandomGuessPlayer(String gameFilename, String chosenName)
             throws IOException {
 
-        PlayerFromFile chosenPlayer = null;
-
         // reads game file
         Scanner gameFileScan = new Scanner(new File(gameFilename));
 
@@ -49,6 +46,7 @@ public class RandomGuessPlayer implements Player {
         for (PlayerFromFile player : players) {
             if (player.getName().equals(chosenName)) {
                 chosenPlayer = player;
+                chosenPlayerAttributes = player.getAttributes();
             }
         }
 
@@ -133,6 +131,10 @@ public class RandomGuessPlayer implements Player {
 
     public Guess guess() {
         String value = null;
+        //this must be the one :D
+        if (candidates.size() == 1) {
+            return new Guess(Guess.GuessType.Person, "", candidates.get(0).getName());
+        }
 
         //randomly pick a player
         int randomPlayerIndex = new Random().nextInt(candidates.size());
@@ -157,27 +159,64 @@ public class RandomGuessPlayer implements Player {
         } else if (guessType == Guess.GuessType.Person) {
             return new Guess(Guess.GuessType.Person, "", player.getName());
         }
-        return new Guess(Guess.GuessType.Person, "", "Placeholder");
+        return new Guess(Guess.GuessType.Attribute, attribute, value);
     } // end of guess()
 
 
     public boolean answer(Guess currGuess) {
-        //if the answer is YES
-        //eliminate all candidates who don't have a value v for attribute a
-
-        //if the answer is No
-        //eliminate all candidates that have v for for attribute a
-
-        //
+        switch (currGuess.getType()) {
+            case Person:
+                // true if currGuess name == chosen players name
+                return currGuess.getValue().equals(chosenPlayer.getName());
+            case Attribute:
+                //check every single attributes chosen player has and its value.
+                for (Map.Entry<String, String> entry : chosenPlayerAttributes.entrySet()) {
+                    if (entry.getKey().equals(currGuess.getAttribute())) {
+                        if (entry.getValue().equals(currGuess.getValue())) {
+                            return true;
+                        }
+                    }
+                }
+        }
 
         return false;
     } // end of answer()
 
 
     public boolean receiveAnswer(Guess currGuess, boolean answer) {
+        if (currGuess.getType() == Guess.GuessType.Person) {
+            if (!answer) {
+                for (PlayerFromFile player : candidates) {
+                    if (player.getName().equals(currGuess.getValue())) {
+                        players.remove(player);
+                    }
+                }
+            } else {
+                return true;
+            }
+        }
+        if (currGuess.getType() == Guess.GuessType.Attribute) {
+            String attribute = currGuess.getAttribute();
+            String value = currGuess.getValue();
 
+            //foreach loop won't work
+            //it doesnt remove player properly
+            for (Iterator<PlayerFromFile> iter = candidates.iterator(); iter.hasNext(); ) {
+                //get player
+                PlayerFromFile player = iter.next();
+                //get player's attributes
+                Map<String, String> attributes = player.getAttributes();
+                //testing value
+                boolean hasValue = attributes.get(attribute).equals(value);
 
-        return true;
+                //eliminate all candidates who dont have value v for attribute a
+                // OR eliminate all candidates that have the value v for attribute a.
+                if ((answer && !hasValue) || (!answer && hasValue)) {
+                    iter.remove();
+                }
+            }
+        }
+        return false;
     } // end of receiveAnswer()
 
 } // end of class RandomGuessPlayer
