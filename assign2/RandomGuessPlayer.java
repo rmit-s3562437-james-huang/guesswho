@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.*;
-import java.util.logging.Level;
 
 /**
  * Random guessing player.
@@ -11,8 +10,15 @@ import java.util.logging.Level;
  */
 public class RandomGuessPlayer implements Player {
     public PlayerFromFile chosenPlayer = null;
+
     public List<PlayerFromFile> players = new ArrayList<PlayerFromFile>();
-    public Map<String, List<String>> attributes = new HashMap<String ,List<String>>();
+
+    public List<PlayerFromFile> candidates = new ArrayList<PlayerFromFile>();
+
+    public Map<String, List<String>> attributes = new HashMap<String, List<String>>();
+
+    public Map<String, String> chosenPlayerAttributes = new HashMap<String, String>();
+
     /**
      * Loads the game configuration from gameFilename, and also store the chosen
      * person.
@@ -27,8 +33,6 @@ public class RandomGuessPlayer implements Player {
     public RandomGuessPlayer(String gameFilename, String chosenName)
             throws IOException {
 
-        PlayerFromFile chosenPlayer = null;
-
         // reads game file
         Scanner gameFileScan = new Scanner(new File(gameFilename));
 
@@ -42,10 +46,13 @@ public class RandomGuessPlayer implements Player {
         for (PlayerFromFile player : players) {
             if (player.getName().equals(chosenName)) {
                 chosenPlayer = player;
+                chosenPlayerAttributes = player.getAttributes();
             }
         }
 
-        System.out.println(chosenPlayer.getName() + chosenPlayer.getAttributes());
+        for (PlayerFromFile player : players) {
+            candidates.add(player);
+        }
 
 
 //        //checking
@@ -123,49 +130,93 @@ public class RandomGuessPlayer implements Player {
 
 
     public Guess guess() {
+        String value = null;
+        //this must be the one :D
+        if (candidates.size() == 1) {
+            return new Guess(Guess.GuessType.Person, "", candidates.get(0).getName());
+        }
 
+        //randomly pick a player
+        int randomPlayerIndex = new Random().nextInt(candidates.size());
+        PlayerFromFile player = candidates.get(randomPlayerIndex);
 
+        //randomly pick an attribute and its value from that random player
+        Map<String, String> attributes = player.getAttributes();
+        Random ranGen = new Random();
+        Object[] values = attributes.keySet().toArray();
+        String attribute = (String) values[ranGen.nextInt(values.length)];
+        for (Map.Entry<String, String> entry : attributes.entrySet()) {
+            if (attributes.containsKey(attribute)) {
+                value = attributes.get(attribute);
+            }
+        }
 
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        return new Guess(Guess.GuessType.Person, "", "Placeholder");
+        //randomly pick a guess type
+        int selection = new Random().nextInt(Guess.GuessType.values().length);
+        Guess.GuessType guessType = Guess.GuessType.values()[selection];
+        if (guessType == Guess.GuessType.Attribute) {
+            return new Guess(Guess.GuessType.Attribute, attribute, value);
+        } else if (guessType == Guess.GuessType.Person) {
+            return new Guess(Guess.GuessType.Person, "", player.getName());
+        }
+        return new Guess(Guess.GuessType.Attribute, attribute, value);
     } // end of guess()
 
 
     public boolean answer(Guess currGuess) {
-
+        switch (currGuess.getType()) {
+            case Person:
+                // true if currGuess name == chosen players name
+                return currGuess.getValue().equals(chosenPlayer.getName());
+            case Attribute:
+                //check every single attributes chosen player has and its value.
+                for (Map.Entry<String, String> entry : chosenPlayerAttributes.entrySet()) {
+                    if (entry.getKey().equals(currGuess.getAttribute())) {
+                        if (entry.getValue().equals(currGuess.getValue())) {
+                            return true;
+                        }
+                    }
+                }
+        }
 
         return false;
     } // end of answer()
 
 
     public boolean receiveAnswer(Guess currGuess, boolean answer) {
+        if (currGuess.getType() == Guess.GuessType.Person) {
+            if (!answer) {
+                for (PlayerFromFile player : candidates) {
+                    if (player.getName().equals(currGuess.getValue())) {
+                        players.remove(player);
+                    }
+                }
+            } else {
+                return true;
+            }
+        }
+        if (currGuess.getType() == Guess.GuessType.Attribute) {
+            String attribute = currGuess.getAttribute();
+            String value = currGuess.getValue();
 
+            //foreach loop won't work
+            //it doesnt remove player properly
+            for (Iterator<PlayerFromFile> iter = candidates.iterator(); iter.hasNext(); ) {
+                //get player
+                PlayerFromFile player = iter.next();
+                //get player's attributes
+                Map<String, String> attributes = player.getAttributes();
+                //testing value
+                boolean hasValue = attributes.get(attribute).equals(value);
 
-        return true;
+                //eliminate all candidates who dont have value v for attribute a
+                // OR eliminate all candidates that have the value v for attribute a.
+                if ((answer && !hasValue) || (!answer && hasValue)) {
+                    iter.remove();
+                }
+            }
+        }
+        return false;
     } // end of receiveAnswer()
 
 } // end of class RandomGuessPlayer
