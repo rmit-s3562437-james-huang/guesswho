@@ -119,22 +119,19 @@ public class BinaryGuessPlayer implements Player
 
 
     public Guess guess() {
-        Map<Map<String, String>, Integer> freq = new HashMap<Map<String, String>, Integer>();
-
+        Map<Map.Entry<String, String>, Integer> freq = new HashMap<Map.Entry<String, String>, Integer>();
         for (PlayerFromFile candidate : candidates){
             Map<String,String> candidateAttributes = candidate.getAttributes();
             for (Map.Entry<String, String> entry : candidateAttributes.entrySet()){
                 Integer f = freq.get(entry);
-
-
-
-
-
-
-
+                if (f != null ){
+                    freq.put(entry, f + 1);
+                }else {
+                    freq.put(entry, 1);
+                }
             }
         }
-        System.out.println(freq);
+        System.out.print(freq);
         return new Guess(Guess.GuessType.Person, "", "Placeholder");
     } // end of guess()
 
@@ -163,7 +160,8 @@ public class BinaryGuessPlayer implements Player
 
         if (currGuess.getType() == Guess.GuessType.Person) {
             if (!answer) {
-                for (PlayerFromFile player : candidates) {
+                for (Iterator<PlayerFromFile> iter = candidates.iterator(); iter.hasNext(); ) {
+                    PlayerFromFile player = iter.next();
                     if (player.getName().equals(currGuess.getValue())) {
                         players.remove(player);
                     }
