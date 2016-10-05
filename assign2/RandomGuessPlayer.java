@@ -185,7 +185,8 @@ public class RandomGuessPlayer implements Player {
     public boolean receiveAnswer(Guess currGuess, boolean answer) {
         if (currGuess.getType() == Guess.GuessType.Person) {
             if (!answer) {
-                for (PlayerFromFile player : candidates) {
+                for (Iterator<PlayerFromFile> iter = candidates.iterator(); iter.hasNext(); ) {
+                    PlayerFromFile player = iter.next();
                     if (player.getName().equals(currGuess.getValue())) {
                         players.remove(player);
                     }
