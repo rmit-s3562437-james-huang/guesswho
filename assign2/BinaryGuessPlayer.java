@@ -4,19 +4,18 @@ import java.util.*;
 /**
  * Binary-search based guessing player.
  * This player is for task C.
- *
+ * <p>
  * You may implement/extend other interfaces or classes, but ensure ultimately
  * that this class implements the Player interface (directly or indirectly).
  */
-public class BinaryGuessPlayer implements Player
-{
+public class BinaryGuessPlayer implements Player {
     private PlayerFromFile chosenPlayer = null;
 
     private List<PlayerFromFile> players = new ArrayList<PlayerFromFile>();
 
     private List<PlayerFromFile> candidates = new ArrayList<PlayerFromFile>();
 
-    private Map<String, List<String>> attributes = new HashMap<String, List<String>>();
+    private List<Map.Entry<String, String>> guesses = new ArrayList<Map.Entry<String, String>>();
 
     private Map<String, String> chosenPlayerAttributes = new HashMap<String, String>();
 
@@ -25,19 +24,16 @@ public class BinaryGuessPlayer implements Player
      * person.
      *
      * @param gameFilename Filename of game configuration.
-     * @param chosenName Name of the chosen person for this player.
+     * @param chosenName   Name of the chosen person for this player.
      * @throws IOException If there are IO issues with loading of gameFilename.
-     *    Note you can handle IOException within the constructor and remove
-     *    the "throws IOException" method specification, but make sure your
-     *    implementation exits gracefully if an IOException is thrown.
+     *                     Note you can handle IOException within the constructor and remove
+     *                     the "throws IOException" method specification, but make sure your
+     *                     implementation exits gracefully if an IOException is thrown.
      */
     public BinaryGuessPlayer(String gameFilename, String chosenName)
-        throws IOException
-    {
+            throws IOException {
         // reads game file
         Scanner gameFileScan = new Scanner(new File(gameFilename));
-
-        attributes = readAttributes(gameFileScan);
 
         while (gameFileScan.hasNextLine()) {
             PlayerFromFile player = readPlayerFromFile(gameFileScan);
@@ -90,6 +86,7 @@ public class BinaryGuessPlayer implements Player
         }
         return attributes;
     }
+
     private PlayerFromFile readPlayerFromFile(Scanner gameFileScan) {
         String name = "";
         Map<String, String> attributes = new HashMap<String, String>();
@@ -119,24 +116,49 @@ public class BinaryGuessPlayer implements Player
 
 
     public Guess guess() {
+        String key = "";
+        String value = "";
+        if (candidates.size() == 1) {
+            return new Guess(Guess.GuessType.Person, "", candidates.get(0).getName());
+        }
+
         Map<Map.Entry<String, String>, Integer> freq = new HashMap<Map.Entry<String, String>, Integer>();
-        for (PlayerFromFile candidate : candidates){
-            Map<String,String> candidateAttributes = candidate.getAttributes();
-            for (Map.Entry<String, String> entry : candidateAttributes.entrySet()){
+
+        //find all the frequency of each attribute
+        for (PlayerFromFile candidate : candidates) {
+            Map<String, String> candidateAttributes = candidate.getAttributes();
+            for (Map.Entry<String, String> entry : candidateAttributes.entrySet()) {
                 Integer f = freq.get(entry);
-                if (f != null ){
+                if (f != null) {
                     freq.put(entry, f + 1);
-                }else {
+                } else {
                     freq.put(entry, 1);
                 }
             }
         }
-        System.out.print(freq);
-        return new Guess(Guess.GuessType.Person, "", "Placeholder");
+        //remove the attribute already guessed.
+        for (Map.Entry<String, String> guess : guesses) {
+            freq.remove(guess);
+        }
+
+        //get the middle
+        int middle = candidates.size() / 2;
+
+        //get the key as close to half candidates as said IN THE ASSIGNENT SPEC
+        for (Map.Entry<Map.Entry<String, String>, Integer> attribute : freq.entrySet()) {
+            if (attribute.getValue() >= middle) {
+                key = attribute.getKey().getKey();
+                value = attribute.getKey().getValue();
+                //add the chosenAttribute to guessesList so we can eliminate guesses
+                guesses.add(attribute.getKey());
+                break;
+            }
+        }
+        return new Guess(Guess.GuessType.Attribute, key, value);
     } // end of guess()
 
 
-	public boolean answer(Guess currGuess) {
+    public boolean answer(Guess currGuess) {
         switch (currGuess.getType()) {
             case Person:
                 // true if currGuess name == chosen players name
@@ -156,8 +178,7 @@ public class BinaryGuessPlayer implements Player
     } // end of answer()
 
 
-	public boolean receiveAnswer(Guess currGuess, boolean answer) {
-
+    public boolean receiveAnswer(Guess currGuess, boolean answer) {
         if (currGuess.getType() == Guess.GuessType.Person) {
             if (!answer) {
                 for (Iterator<PlayerFromFile> iter = candidates.iterator(); iter.hasNext(); ) {
@@ -191,7 +212,7 @@ public class BinaryGuessPlayer implements Player
                 }
             }
         }
-        return true;
+        return false;
     } // end of receiveAnswer()
 
 } // end of class BinaryGuessPlayer
