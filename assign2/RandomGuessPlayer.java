@@ -9,6 +9,7 @@ import java.util.*;
  * that this class implements the Player interface (directly or indirectly).
  */
 public class RandomGuessPlayer implements Player {
+    private Random rand = new Random();
     private PlayerFromFile chosenPlayer = null;
 
     private List<PlayerFromFile> players = new ArrayList<PlayerFromFile>();
@@ -16,6 +17,7 @@ public class RandomGuessPlayer implements Player {
     private List<PlayerFromFile> candidates = new ArrayList<PlayerFromFile>();
 
     private Map<String, List<String>> attributes = new HashMap<String, List<String>>();
+    private List<Map.Entry<String, String>> guesses = new ArrayList<Map.Entry<String, String>>();
 
     private Map<String, String> chosenPlayerAttributes = new HashMap<String, String>();
 
@@ -53,17 +55,6 @@ public class RandomGuessPlayer implements Player {
         for (PlayerFromFile player : players) {
             candidates.add(player);
         }
-
-
-//        //checking
-//        List<String> hairLengths = attributes.get("hairLength");
-//        for (String hair : hairLengths){
-//            System.out.println(hair);
-//        }
-//
-//        for (PlayerFromFile player : players){
-//            System.out.println(player.getName() + player.getAttributes());
-//        }
 
     } // end of RandomGuessPlayer()
 
@@ -130,36 +121,34 @@ public class RandomGuessPlayer implements Player {
 
 
     public Guess guess() {
-        String value = null;
-        //this must be the one :D
-        if (candidates.size() == 1) {
+        if (candidates.size() == 1){
             return new Guess(Guess.GuessType.Person, "", candidates.get(0).getName());
         }
+        //attribute set
+        Set<Map.Entry<String, String>> setAttributes = new HashSet<Map.Entry<String, String>>();
 
-        //randomly pick a player
-        int randomPlayerIndex = new Random().nextInt(candidates.size());
-        PlayerFromFile player = candidates.get(randomPlayerIndex);
-
-        //randomly pick an attribute and its value from that random player
-        Map<String, String> attributes = player.getAttributes();
-        Random ranGen = new Random();
-        Object[] values = attributes.keySet().toArray();
-        String attribute = (String) values[ranGen.nextInt(values.length)];
-        for (Map.Entry<String, String> entry : attributes.entrySet()) {
-            if (attributes.containsKey(attribute)) {
-                value = attributes.get(attribute);
-            }
+        //loop through candidates and add thier attributes to set
+        for (Iterator<PlayerFromFile> iter = candidates.iterator(); iter.hasNext(); ) {
+            PlayerFromFile player = iter.next();
+            setAttributes.addAll(player.getAttributes().entrySet());
         }
 
-        //randomly pick a guess type
-        int selection = new Random().nextInt(Guess.GuessType.values().length);
-        Guess.GuessType guessType = Guess.GuessType.values()[selection];
-        if (guessType == Guess.GuessType.Attribute) {
-            return new Guess(Guess.GuessType.Attribute, attribute, value);
-        } else if (guessType == Guess.GuessType.Person) {
-            return new Guess(Guess.GuessType.Person, "", player.getName());
+        //remove the attribute already GUESSS
+        setAttributes.removeAll(guesses);
+
+        //pick random number
+        int r = rand.nextInt(setAttributes.size());
+        Iterator<Map.Entry<String, String>> iterator = setAttributes.iterator();
+        for (int i = 0; i < r ; i++) {
+            iterator.next();
         }
-        return new Guess(Guess.GuessType.Attribute, attribute, value);
+        //pick es
+        Map.Entry<String, String> guessAttribute = iterator.next();
+
+        guesses.add(guessAttribute);
+
+        return new Guess(Guess.GuessType.Attribute, guessAttribute.getKey(), guessAttribute.getValue());
+
     } // end of guess()
 
 
@@ -178,17 +167,19 @@ public class RandomGuessPlayer implements Player {
                     }
                 }
         }
-
         return false;
     } // end of answer()
 
     public boolean receiveAnswer(Guess currGuess, boolean answer) {
+        String attribute = currGuess.getAttribute();
+        String value = currGuess.getValue();
+
         if (currGuess.getType() == Guess.GuessType.Person) {
             if (!answer) {
                 for (Iterator<PlayerFromFile> iter = candidates.iterator(); iter.hasNext(); ) {
                     PlayerFromFile player = iter.next();
-                    if (player.getName().equals(currGuess.getValue())) {
-                        players.remove(player);
+                    if (player.getName().equals(value)) {
+                        iter.remove();
                     }
                 }
             } else {
@@ -196,9 +187,6 @@ public class RandomGuessPlayer implements Player {
             }
         }
         if (currGuess.getType() == Guess.GuessType.Attribute) {
-            String attribute = currGuess.getAttribute();
-            String value = currGuess.getValue();
-
             //foreach loop won't work
             //it doesnt remove player properly
             for (Iterator<PlayerFromFile> iter = candidates.iterator(); iter.hasNext(); ) {

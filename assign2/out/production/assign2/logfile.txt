@@ -1,6 +1,26 @@
 Round 1
-Player 1 guessing Person  Placeholder
-Player 2 answering false
-Player 2 guessing Person  Placeholder
+Player 1 guessing Attribute hairColor brown
+Player 2 answering true
+Player 2 guessing Attribute pimples blue
+Player 1 answering true
+Round 2
+Player 1 guessing Attribute glasses green
+Player 2 answering true
+Player 2 guessing Attribute faceShape blue
 Player 1 answering false
-It's a tie!
+Round 3
+Player 1 guessing Attribute noseShape green
+Player 2 answering false
+Player 2 guessing Attribute hairLength blue
+Player 1 answering false
+Round 4
+Player 1 guessing Attribute faceShape red
+Player 2 answering true
+Player 2 guessing Attribute hat brown
+Player 1 answering false
+Round 5
+Player 1 guessing Attribute hairLength yellow
+Player 2 answering true
+Player 2 guessing Person  P3
+Player 1 answering true
+Player 2 won!
