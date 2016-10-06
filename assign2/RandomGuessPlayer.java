@@ -17,6 +17,7 @@ public class RandomGuessPlayer implements Player {
     private List<PlayerFromFile> candidates = new ArrayList<PlayerFromFile>();
 
     private Map<String, List<String>> attributes = new HashMap<String, List<String>>();
+    private List<Map.Entry<String, String>> guesses = new ArrayList<Map.Entry<String, String>>();
 
     private Map<String, String> chosenPlayerAttributes = new HashMap<String, String>();
 
@@ -54,17 +55,6 @@ public class RandomGuessPlayer implements Player {
         for (PlayerFromFile player : players) {
             candidates.add(player);
         }
-
-
-//        //checking
-//        List<String> hairLengths = attributes.get("hairLength");
-//        for (String hair : hairLengths){
-//            System.out.println(hair);
-//        }
-//
-//        for (PlayerFromFile player : players){
-//            System.out.println(player.getName() + player.getAttributes());
-//        }
 
     } // end of RandomGuessPlayer()
 
@@ -134,21 +124,30 @@ public class RandomGuessPlayer implements Player {
         if (candidates.size() == 1){
             return new Guess(Guess.GuessType.Person, "", candidates.get(0).getName());
         }
+        //attribute set
+        Set<Map.Entry<String, String>> setAttributes = new HashSet<Map.Entry<String, String>>();
 
-        Set<Map.Entry<String, String>> set = new HashSet<Map.Entry<String, String>>();
-
-        for (PlayerFromFile player : candidates){
-            set.addAll(player.getAttributes().entrySet());
+        //loop through candidates and add thier attributes to set
+        for (Iterator<PlayerFromFile> iter = candidates.iterator(); iter.hasNext(); ) {
+            PlayerFromFile player = iter.next();
+            setAttributes.addAll(player.getAttributes().entrySet());
         }
 
-        int r = rand.nextInt(set.size());
+        //remove the attribute already GUESSS
+        setAttributes.removeAll(guesses);
 
-        Iterator<Map.Entry<String, String>> iterator = set.iterator();
+        //pick random number
+        int r = rand.nextInt(setAttributes.size());
+        Iterator<Map.Entry<String, String>> iterator = setAttributes.iterator();
         for (int i = 0; i < r ; i++) {
             iterator.next();
         }
-        Map.Entry<String, String> es = iterator.next();
-        return new Guess(Guess.GuessType.Attribute, es.getKey(), es.getValue());
+        //pick es
+        Map.Entry<String, String> guessAttribute = iterator.next();
+
+        guesses.add(guessAttribute);
+
+        return new Guess(Guess.GuessType.Attribute, guessAttribute.getKey(), guessAttribute.getValue());
 
     } // end of guess()
 

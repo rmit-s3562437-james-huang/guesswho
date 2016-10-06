@@ -1,21 +1,22 @@
 Round 1
-Player 1 guessing Attribute pimples blue
-Player 2 answering true
-Player 2 guessing Attribute facialHair white
-Player 1 answering false
-Round 2Player 1 guessing Attribute pimples white
-Player 2 answering false
-Player 2 guessing Attribute facialHair white
-Player 1 answering false
-Round 3
-Player 1 guessing Attribute glasses green
+Player 1 guessing Attribute hairColor brown
 Player 2 answering true
 Player 2 guessing Attribute pimples blue
 Player 1 answering true
-Round 4
-Player 1 guessing Attribute pimples red
+Round 2
+Player 1 guessing Attribute glasses green
+Player 2 answering true
+Player 2 guessing Attribute faceShape blue
+Player 1 answering false
+Round 3
+Player 1 guessing Attribute noseShape green
 Player 2 answering false
-Player 2 guessing Attribute hairColor brown
+Player 2 guessing Attribute hairLength blue
+Player 1 answering false
+Round 4
+Player 1 guessing Attribute faceShape red
+Player 2 answering true
+Player 2 guessing Attribute hat brown
 Player 1 answering false
 Round 5
 Player 1 guessing Attribute hairLength yellow
