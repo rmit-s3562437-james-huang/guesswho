@@ -12,11 +12,8 @@ public class RandomGuessPlayer implements Player {
     private Random rand = new Random();
     private PlayerFromFile chosenPlayer = null;
 
-    private List<PlayerFromFile> players = new ArrayList<PlayerFromFile>();
-
     private List<PlayerFromFile> candidates = new ArrayList<PlayerFromFile>();
 
-    private Map<String, List<String>> attributes = new HashMap<String, List<String>>();
     private List<Map.Entry<String, String>> guesses = new ArrayList<Map.Entry<String, String>>();
 
     private Map<String, String> chosenPlayerAttributes = new HashMap<String, String>();
@@ -34,11 +31,11 @@ public class RandomGuessPlayer implements Player {
      */
     public RandomGuessPlayer(String gameFilename, String chosenName)
             throws IOException {
+        List<PlayerFromFile> players = new ArrayList<PlayerFromFile>();
 
         // reads game file
         Scanner gameFileScan = new Scanner(new File(gameFilename));
 
-        attributes = readAttributes(gameFileScan);
 
         while (gameFileScan.hasNextLine()) {
             PlayerFromFile player = readPlayerFromFile(gameFileScan);
@@ -142,7 +139,7 @@ public class RandomGuessPlayer implements Player {
         for (int i = 0; i < r ; i++) {
             iterator.next();
         }
-        //pick es
+
         Map.Entry<String, String> guessAttribute = iterator.next();
 
         guesses.add(guessAttribute);
