@@ -17,6 +17,8 @@ public class BinaryGuessPlayer implements Player {
 
     private List<Map.Entry<String, String>> guesses = new ArrayList<Map.Entry<String, String>>();
 
+    private Map<String, List<String>> allAttributes = new HashMap<>();
+
     private Map<String, String> chosenPlayerAttributes = new HashMap<String, String>();
 
     /**
@@ -34,6 +36,7 @@ public class BinaryGuessPlayer implements Player {
             throws IOException {
         // reads game file
         Scanner gameFileScan = new Scanner(new File(gameFilename));
+        allAttributes = readAttributes(gameFileScan);
 
         while (gameFileScan.hasNextLine()) {
             PlayerFromFile player = readPlayerFromFile(gameFileScan);
@@ -47,9 +50,7 @@ public class BinaryGuessPlayer implements Player {
             }
         }
 
-        for (PlayerFromFile player : players) {
-            candidates.add(player);
-        }
+        candidates.addAll(players);
 
     } // end of BinaryGuessPlayer()
 
@@ -144,7 +145,7 @@ public class BinaryGuessPlayer implements Player {
         //get the middle
         int middle = candidates.size() / 2;
 
-        //get the key as close to half candidates as said IN THE ASSIGNENT SPEC
+        //get the key as close to half candidates as said IN THE ASSIGNMENT SPEC
         for (Map.Entry<Map.Entry<String, String>, Integer> attribute : freq.entrySet()) {
             if (attribute.getValue() >= middle) {
                 key = attribute.getKey().getKey();

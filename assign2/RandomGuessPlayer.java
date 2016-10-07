@@ -16,6 +16,8 @@ public class RandomGuessPlayer implements Player {
 
     private List<Map.Entry<String, String>> guesses = new ArrayList<Map.Entry<String, String>>();
 
+    private Map<String, List<String>> allAttributes = new HashMap<>();
+
     private Map<String, String> chosenPlayerAttributes = new HashMap<String, String>();
 
     /**
@@ -36,6 +38,7 @@ public class RandomGuessPlayer implements Player {
         // reads game file
         Scanner gameFileScan = new Scanner(new File(gameFilename));
 
+        allAttributes = readAttributes(gameFileScan);
 
         while (gameFileScan.hasNextLine()) {
             PlayerFromFile player = readPlayerFromFile(gameFileScan);
@@ -49,9 +52,7 @@ public class RandomGuessPlayer implements Player {
             }
         }
 
-        for (PlayerFromFile player : players) {
-            candidates.add(player);
-        }
+        candidates.addAll(players);
 
     } // end of RandomGuessPlayer()
 
