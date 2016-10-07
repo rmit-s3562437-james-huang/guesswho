@@ -21,15 +21,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BinaryGuessPlayer.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BinaryGuessPlayer.java">
+      <file leaf-file-name="GuessWho.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GuessWho.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="142" column="12" selection-start-line="142" selection-start-column="12" selection-end-line="142" selection-end-column="12" />
+            <state relative-caret-position="2415">
+              <caret line="165" column="0" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomGuessPlayer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CustomGuessPlayer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="81" column="9" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#readAttributes#0;class#BinaryGuessPlayer#0" expanded="false" />
-                <element signature="method#readPlayerFromFile#0;class#BinaryGuessPlayer#0" expanded="false" />
+                <element signature="method#readAttributes#0;class#CustomGuessPlayer#0" expanded="false" />
+                <element signature="e#3091#3113#0" expanded="true" />
+                <element signature="e#3725#3733#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -38,13 +49,23 @@
       <file leaf-file-name="RandomGuessPlayer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RandomGuessPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="125" column="9" selection-start-line="125" selection-start-column="9" selection-end-line="125" selection-end-column="9" />
+            <state relative-caret-position="615">
+              <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#RandomGuessPlayer#0;class#RandomGuessPlayer#0" expanded="false" />
-                <element signature="method#readAttributes#0;class#RandomGuessPlayer#0" expanded="false" />
-                <element signature="method#readPlayerFromFile#0;class#RandomGuessPlayer#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BinaryGuessPlayer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BinaryGuessPlayer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="13" column="75" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="75" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#436#452#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -60,14 +81,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/GuessWho.java" />
         <option value="$PROJECT_DIR$/RandomGuessPlayer.java" />
+        <option value="$PROJECT_DIR$/GuessWho.java" />
         <option value="$PROJECT_DIR$/BinaryGuessPlayer.java" />
+        <option value="$PROJECT_DIR$/CustomGuessPlayer.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="773" />
+    <option name="width" value="1280" />
     <option name="height" value="773" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -81,7 +103,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -94,7 +116,45 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assign2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assign2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assign2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RandomGuessPlayer.java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assign2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assign2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -105,7 +165,7 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="GuessWho" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="-l logfile.txt ../sampleGameFiles/game1.config ../sampleGameFiles/game1.chosen binary binary" />
+      <option name="PROGRAM_PARAMETERS" value="-l logfile.txt ../sampleGameFiles/game1.config ../sampleGameFiles/game1.chosen custom custom" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -383,7 +443,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="773" height="773" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -392,19 +452,19 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26431718" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5051395" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13215859" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.95594716" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32816774" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6082192" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3494318" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -425,7 +485,39 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="90" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CustomGuessPlayer.java</url>
+          <line>127</line>
+          <properties />
+          <option name="timeStamp" value="105" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CustomGuessPlayer.java</url>
+          <line>55</line>
+          <properties />
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CustomGuessPlayer.java</url>
+          <line>44</line>
+          <properties />
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CustomGuessPlayer.java</url>
+          <line>79</line>
+          <properties />
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CustomGuessPlayer.java</url>
+          <line>59</line>
+          <properties />
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="110" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -440,8 +532,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readAttributes#0;class#BinaryGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#BinaryGuessPlayer#0" expanded="false" />
+            <element signature="e#436#452#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -457,9 +548,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
           <caret line="168" column="22" selection-start-line="168" selection-start-column="22" selection-end-line="168" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -483,9 +572,6 @@
           <caret line="192" column="17" selection-start-line="192" selection-start-column="17" selection-end-line="192" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#RandomGuessPlayer#0;class#RandomGuessPlayer#0" expanded="false" />
-            <element signature="method#readAttributes#0;class#RandomGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#RandomGuessPlayer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -496,8 +582,7 @@
           <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readAttributes#0;class#BinaryGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#BinaryGuessPlayer#0" expanded="false" />
+            <element signature="e#436#452#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -508,8 +593,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readAttributes#0;class#BinaryGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#BinaryGuessPlayer#0" expanded="false" />
+            <element signature="e#436#452#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -518,9 +602,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2460">
           <caret line="168" column="22" selection-start-line="168" selection-start-column="22" selection-end-line="168" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -530,8 +612,7 @@
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readAttributes#0;class#BinaryGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#BinaryGuessPlayer#0" expanded="false" />
+            <element signature="e#436#452#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -556,9 +637,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#RandomGuessPlayer#0;class#RandomGuessPlayer#0" expanded="false" />
-            <element signature="method#readAttributes#0;class#RandomGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#RandomGuessPlayer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -567,9 +645,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2535">
           <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -579,8 +655,7 @@
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readAttributes#0;class#BinaryGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#BinaryGuessPlayer#0" expanded="false" />
+            <element signature="e#436#452#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -605,9 +680,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#RandomGuessPlayer#0;class#RandomGuessPlayer#0" expanded="false" />
-            <element signature="method#readAttributes#0;class#RandomGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#RandomGuessPlayer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -616,9 +688,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2730">
           <caret line="186" column="41" selection-start-line="186" selection-start-column="41" selection-end-line="186" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -628,8 +698,7 @@
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readAttributes#0;class#BinaryGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#BinaryGuessPlayer#0" expanded="false" />
+            <element signature="e#436#452#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -647,9 +716,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#RandomGuessPlayer#0;class#RandomGuessPlayer#0" expanded="false" />
-            <element signature="method#readAttributes#0;class#RandomGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#RandomGuessPlayer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -658,9 +724,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1200">
           <caret line="84" column="37" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -670,8 +734,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readAttributes#0;class#BinaryGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#BinaryGuessPlayer#0" expanded="false" />
+            <element signature="e#436#452#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -689,8 +752,7 @@
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readAttributes#0;class#BinaryGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#BinaryGuessPlayer#0" expanded="false" />
+            <element signature="e#436#452#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -715,9 +777,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#RandomGuessPlayer#0;class#RandomGuessPlayer#0" expanded="false" />
-            <element signature="method#readAttributes#0;class#RandomGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#RandomGuessPlayer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -726,9 +785,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -738,8 +795,7 @@
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readAttributes#0;class#BinaryGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#BinaryGuessPlayer#0" expanded="false" />
+            <element signature="e#436#452#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -764,9 +820,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#RandomGuessPlayer#0;class#RandomGuessPlayer#0" expanded="false" />
-            <element signature="method#readAttributes#0;class#RandomGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#RandomGuessPlayer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -775,9 +828,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2565">
           <caret line="175" column="24" selection-start-line="175" selection-start-column="24" selection-end-line="175" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -787,8 +838,7 @@
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readAttributes#0;class#BinaryGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#BinaryGuessPlayer#0" expanded="false" />
+            <element signature="e#436#452#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -806,9 +856,6 @@
           <caret line="45" column="44" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#RandomGuessPlayer#0;class#RandomGuessPlayer#0" expanded="false" />
-            <element signature="method#readAttributes#0;class#RandomGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#RandomGuessPlayer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -817,9 +864,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2565">
           <caret line="175" column="24" selection-start-line="175" selection-start-column="24" selection-end-line="175" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -829,8 +874,7 @@
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readAttributes#0;class#BinaryGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#BinaryGuessPlayer#0" expanded="false" />
+            <element signature="e#436#452#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -841,9 +885,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#RandomGuessPlayer#0;class#RandomGuessPlayer#0" expanded="false" />
-            <element signature="method#readAttributes#0;class#RandomGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#RandomGuessPlayer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -852,9 +893,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2565">
           <caret line="175" column="24" selection-start-line="175" selection-start-column="24" selection-end-line="175" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -864,8 +903,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readAttributes#0;class#BinaryGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#BinaryGuessPlayer#0" expanded="false" />
+            <element signature="e#436#452#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -891,23 +929,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GuessWho.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomGuessPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BinaryGuessPlayer.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -915,27 +936,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GuessWho.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2415">
+          <caret line="165" column="0" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/RandomGuessPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="125" column="9" selection-start-line="125" selection-start-column="9" selection-end-line="125" selection-end-column="9" />
+        <state relative-caret-position="615">
+          <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#RandomGuessPlayer#0;class#RandomGuessPlayer#0" expanded="false" />
-            <element signature="method#readAttributes#0;class#RandomGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#RandomGuessPlayer#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BinaryGuessPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="142" column="12" selection-start-line="142" selection-start-column="12" selection-end-line="142" selection-end-column="12" />
+        <state relative-caret-position="105">
+          <caret line="13" column="75" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="75" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readAttributes#0;class#BinaryGuessPlayer#0" expanded="false" />
-            <element signature="method#readPlayerFromFile#0;class#BinaryGuessPlayer#0" expanded="false" />
+            <element signature="e#436#452#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomGuessPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="81" column="9" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#readAttributes#0;class#CustomGuessPlayer#0" expanded="false" />
+            <element signature="e#3091#3113#0" expanded="true" />
+            <element signature="e#3725#3733#0" expanded="true" />
           </folding>
         </state>
       </provider>

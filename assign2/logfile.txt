@@ -1,26 +1,21 @@
 Round 1
 Player 1 guessing Attribute noseShape white
-Player 2 answering true
-Player 2 guessing Attribute glasses green
-Player 1 answering true
-Round 2
-Player 1 guessing Attribute pimples blue
-Player 2 answering true
+Player 2 answering false
 Player 2 guessing Attribute noseShape white
 Player 1 answering false
-Round 3
+Round 2
 Player 1 guessing Attribute eyeColor blue
-Player 2 answering true
-Player 2 guessing Attribute hairLength yellow
-Player 1 answering false
-Round 4
-Player 1 guessing Attribute faceShape blue
 Player 2 answering false
-Player 2 guessing Attribute hat brown
+Player 2 guessing Attribute eyeColor blue
 Player 1 answering false
-Round 5
-Player 1 guessing Person  P5
+Round 3
+Player 1 guessing Attribute hairLength blue
+Player 2 answering false
+Player 2 guessing Attribute hairLength blue
+Player 1 answering true
+Round 4
+Player 1 guessing Person  P10
 Player 2 answering true
-Player 2 guessing Attribute hairColor brown
-Player 1 answering false
-Player 1 won!
+Player 2 guessing Person  P1
+Player 1 answering true
+It's a tie!
