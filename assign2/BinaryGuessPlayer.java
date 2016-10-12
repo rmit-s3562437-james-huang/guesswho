@@ -1,6 +1,9 @@
 import java.io.*;
 import java.util.*;
 
+/** s3426571: Thoung Nguyen **/
+/** s3562437: James Huang   **/
+
 /**
  * Binary-search based guessing player.
  * This player is for task C.
@@ -9,18 +12,13 @@ import java.util.*;
  * that this class implements the Player interface (directly or indirectly).
  */
 public class BinaryGuessPlayer implements Player {
+    // Initializing Database structures
     private PlayerFromFile chosenPlayer = null;
-
     private List<PlayerFromFile> players = new ArrayList<PlayerFromFile>();
-
     private List<PlayerFromFile> candidates = new ArrayList<PlayerFromFile>();
-
     private List<Map.Entry<String, String>> guesses = new ArrayList<Map.Entry<String, String>>();
-
     private Map<String, List<String>> allAttributes = new HashMap<>();
-
     private Map<String, String> chosenPlayerAttributes = new HashMap<String, String>();
-
     /**
      * Loads the game configuration from gameFilename, and also store the chosen
      * person.
@@ -34,7 +32,7 @@ public class BinaryGuessPlayer implements Player {
      */
     public BinaryGuessPlayer(String gameFilename, String chosenName)
             throws IOException {
-        // reads game file
+        // Scanning for gameFilename
         Scanner gameFileScan = new Scanner(new File(gameFilename));
         allAttributes = readAttributes(gameFileScan);
 
@@ -49,36 +47,30 @@ public class BinaryGuessPlayer implements Player {
                 chosenPlayerAttributes = player.getAttributes();
             }
         }
-
         candidates.addAll(players);
-
     } // end of BinaryGuessPlayer()
 
     private Map<String, List<String>> readAttributes(Scanner gameFileScan) {
         Map<String, List<String>> attributes = new HashMap<String, List<String>>();
 
         while (gameFileScan.hasNextLine()) {
-            //read line by line
+            // Read line-by-line
             String line = gameFileScan.nextLine();
-
-            //check newline
+            // Breaks, after all attributes have been scanned
             if (line.equals("")) {
                 break;
             }
-
             Scanner lineScan = new Scanner(line);
             lineScan.useDelimiter(" ");
 
-            //this idea is from the 4.1 Details of Files
-            //in the assignment specs
-
-            //[attribute] [LIST of values it can take]
-
-            //get the first item of the line
+            // 4.1 Details of Files
+            // Following the format of config file [attribute] [LIST of values it can take]
+            // Scans key as the attribute
+            
             String key = lineScan.next();
             List<String> values = new ArrayList<String>();
 
-            //then put the rest in the arraylist as the values
+            // Scans values as the list of attribute values
             while (lineScan.hasNext()) {
                 String value = lineScan.next();
                 values.add(value);
@@ -86,46 +78,46 @@ public class BinaryGuessPlayer implements Player {
             attributes.put(key, values);
         }
         return attributes;
-    }
+    } // end of readAttributes()
 
     private PlayerFromFile readPlayerFromFile(Scanner gameFileScan) {
         String name = "";
         Map<String, String> attributes = new HashMap<String, String>();
-
+        // Reads attributes and values of the P player
         while (gameFileScan.hasNextLine()) {
-            //read attribute and value of the P player
             String line = gameFileScan.nextLine();
             if (line.equals("")) {
                 break;
             }
 
-            //person format
-            //[person name]
-            //[attribute n] [value of attribute n]
+            // 4.1 Details of Files
+            // Following the format of config file [person name]
+            // Following the format of config file [attribute n] [value of attribute n]
 
             String[] keyValue = line.split(" ");
-            //check whether it the players name or the attribute
+            // Checking for players name based of array length, since a array length of the name is only 1
+            // Else the following will be attibutes alongside the list of attributes
             if (keyValue.length > 1) {
                 attributes.put(keyValue[0], keyValue[1]);
             } else {
-                //vaue < 1 then must be the name
                 name = line;
             }
         }
         return new PlayerFromFile(name, attributes);
-    }
-
+    } // end of readPlayerFromFile()
 
     public Guess guess() {
         String key = "";
         String value = "";
+        
+        // Returns a candidate if there is only 1 person
         if (candidates.size() == 1) {
             return new Guess(Guess.GuessType.Person, "", candidates.get(0).getName());
         }
-
+        // Attributes data set
         Map<Map.Entry<String, String>, Integer> freq = new HashMap<Map.Entry<String, String>, Integer>();
 
-        //find all the frequency of each attribute
+        // Find all the frequencies of each attribute
         for (PlayerFromFile candidate : candidates) {
             Map<String, String> candidateAttributes = candidate.getAttributes();
             for (Map.Entry<String, String> entry : candidateAttributes.entrySet()) {
@@ -137,20 +129,21 @@ public class BinaryGuessPlayer implements Player {
                 }
             }
         }
-        //remove the attribute already guessed.
+        
+        // Remove the attribute already guessed
         for (Map.Entry<String, String> guess : guesses) {
             freq.remove(guess);
         }
 
-        //get the middle
+        // Get the middle
         int middle = candidates.size() / 2;
 
-        //get the key as close to half candidates as said IN THE ASSIGNMENT SPEC
+        // Get the key "eliminates as close to half the candidates"
         for (Map.Entry<Map.Entry<String, String>, Integer> attribute : freq.entrySet()) {
             if (attribute.getValue() >= middle) {
                 key = attribute.getKey().getKey();
                 value = attribute.getKey().getValue();
-                //add the chosenAttribute to guessesList so we can eliminate guesses
+                // Add the chosenAttribute to guessesList so we can eliminate guesses
                 guesses.add(attribute.getKey());
                 break;
             }
@@ -162,10 +155,11 @@ public class BinaryGuessPlayer implements Player {
     public boolean answer(Guess currGuess) {
         switch (currGuess.getType()) {
             case Person:
-                // true if currGuess name == chosen players name
+                // True if currGuess name == chosen players name
                 return currGuess.getValue().equals(chosenPlayer.getName());
             case Attribute:
-                //check every single attributes chosen player has and its value.
+                // Loop attributes of chosen player and 
+                // see if currGuess [attribute n] [value of attribute n] matches up
                 for (Map.Entry<String, String> entry : chosenPlayerAttributes.entrySet()) {
                     if (entry.getKey().equals(currGuess.getAttribute())) {
                         if (entry.getValue().equals(currGuess.getValue())) {
@@ -178,10 +172,10 @@ public class BinaryGuessPlayer implements Player {
         return false;
     } // end of answer()
 
-
     public boolean receiveAnswer(Guess currGuess, boolean answer) {
         if (currGuess.getType() == Guess.GuessType.Person) {
             if (!answer) {
+                // If the answer is incorrect, remove that player from candidates
                 for (Iterator<PlayerFromFile> iter = candidates.iterator(); iter.hasNext(); ) {
                     PlayerFromFile player = iter.next();
                     if (player.getName().equals(currGuess.getValue())) {
@@ -196,18 +190,17 @@ public class BinaryGuessPlayer implements Player {
             String attribute = currGuess.getAttribute();
             String value = currGuess.getValue();
 
-            //foreach loop won't work
-            //it doesnt remove player properly
+            // Foreach loop won't work
+            // It doesnt remove player properly
             for (Iterator<PlayerFromFile> iter = candidates.iterator(); iter.hasNext(); ) {
-                //get player
+                // Get player
                 PlayerFromFile player = iter.next();
-                //get player's attributes
+                // Get player's attributes
                 Map<String, String> attributes = player.getAttributes();
-                //testing value
+                // Testing value
                 boolean hasValue = attributes.get(attribute).equals(value);
-
-                //eliminate all candidates who dont have value v for attribute a
-                // OR eliminate all candidates that have the value v for attribute a.
+                // Eliminate all candidates who don't have value V for attribute A
+                // OR eliminate all candidates that have the value V for attribute A
                 if ((answer && !hasValue) || (!answer && hasValue)) {
                     iter.remove();
                 }
