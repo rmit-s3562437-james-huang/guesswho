@@ -62,12 +62,12 @@ public class CustomGuessPlayer implements Player
 			}
 
 			// 4.1 Details of Files
-            // Following the format of config file [person name]
-            // Following the format of config file [attribute n] [value of attribute n]
+			    // Following the format of config file [person name]
+			    // Following the format of config file [attribute n] [value of attribute n]
 
 			String[] keyValue = line.split(" ");
 			// Checking for players name based of array length, since a array length of the name is only 1
-            // Else the following will be attibutes alongside the list of attributes
+			// Else the following will be attibutes alongside the list of attributes
 			if (keyValue.length > 1) {
 				attributes.put(keyValue[0], keyValue[1]);
 			} else {
